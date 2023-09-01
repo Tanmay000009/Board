@@ -17,6 +17,7 @@ const config: Config = {
     fontFamily: {
       mont: ["Montserrat", "sans-serif"],
       lato: ["Lato", "sans-serif"],
+      poppins: ["Poppins", "sans-serif"],
     },
   },
   plugins: [],

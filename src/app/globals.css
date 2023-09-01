@@ -16,16 +16,17 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-}
 
 @font-face {
   font-family: 'Lato';
   src: url('../../public/fonts/Lato/Lato-Regular.ttf');
   font-weight: normal;
   font-style: normal;
+}
+
+* {
+  font-family: 'Lato', sans-serif;
+  color: rgb(var(--foreground-rgb));
+  font-size: medium;
+  color: black;
 }
