@@ -31,29 +31,29 @@ const BoardComponent = () => {
           src="/icons/github.svg"
           alt="Github icon"
           className="hover:scale-110 transition duration-150 cursor-pointer hover:opacity-80 active:scale-90 active:opacity-100"
-          width={width > 1536 ? 48 : width > 1024 ? 40 : 32}
-          height={width > 1536 ? 48 : width > 1024 ? 40 : 32}
+          width={width > 1536 ? 48 : width > 1024 ? 32 : 32}
+          height={width > 1536 ? 48 : width > 1024 ? 32 : 32}
         />
         <Image
           src="/icons/twitter.svg"
           alt="Twitter icon"
           className="hover:scale-110 transition duration-150 cursor-pointer hover:opacity-80 active:scale-90 active:opacity-100"
-          width={width > 1536 ? 48 : width > 1024 ? 40 : 32}
-          height={width > 1536 ? 48 : width > 1024 ? 40 : 32}
+          width={width > 1536 ? 48 : width > 1024 ? 32 : 32}
+          height={width > 1536 ? 48 : width > 1024 ? 32 : 32}
         />
         <Image
           src="/icons/linkedin.svg"
           alt="Linkedin icon"
           className="hover:scale-110 transition duration-150 cursor-pointer hover:opacity-80 active:scale-90 active:opacity-100"
-          width={width > 1536 ? 48 : width > 1024 ? 40 : 32}
-          height={width > 1536 ? 48 : width > 1024 ? 40 : 32}
+          width={width > 1536 ? 48 : width > 1024 ? 32 : 32}
+          height={width > 1536 ? 48 : width > 1024 ? 32 : 32}
         />
         <Image
           src="/icons/discord.svg"
           alt="Discord icon"
           className="hover:scale-110 transition duration-150 cursor-pointer hover:opacity-80 active:scale-90 active:opacity-100"
-          width={width > 1536 ? 48 : width > 1024 ? 40 : 32}
-          height={width > 1536 ? 48 : width > 1024 ? 40 : 32}
+          width={width > 1536 ? 48 : width > 1024 ? 32 : 32}
+          height={width > 1536 ? 48 : width > 1024 ? 32 : 32}
         />
       </div>
     </div>
