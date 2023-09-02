@@ -78,7 +78,7 @@ const LoginForm = ({ mobile }: { mobile: boolean }) => {
           </form>
         </div>
       </div>
-      <p className="tracking-wide flex flex-row justify-center  text-sm font-light text-gray-500 ">
+      <h5 className="tracking-wide flex flex-row justify-center  text-sm font-light text-gray-500 ">
         Don’t have an account?{" "}
         <a
           href="#"
@@ -87,7 +87,7 @@ const LoginForm = ({ mobile }: { mobile: boolean }) => {
           {" "}
           Register here
         </a>
-      </p>
+      </h5>
     </div>
   );
 };
