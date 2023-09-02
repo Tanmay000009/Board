@@ -24,6 +24,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../../public/fonts/Montserrat/Montserrat-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../../public/fonts/Montserrat/Montserrat-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
 * {
   font-family: 'Lato', sans-serif;
   color: rgb(var(--foreground-rgb));
