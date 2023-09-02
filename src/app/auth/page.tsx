@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import Image from "next/image";
-import LoginForm from "./loginForm";
-import LoginComponent from "./loginComponent";
-import BoardComponent from "./BoardComponent";
-import BoardComponentMobile from "./BoardComponentMobile";
-import LoginComponentMobile from "./LoginComponentMobile";
-import FooterComponentMobile from "./FooterComponentMobile";
+import LoginForm from "../../components/auth/loginForm";
+import LoginComponent from "../../components/auth/loginComponent";
+import BoardComponent from "../../components/auth/BoardComponent";
+import BoardComponentMobile from "../../components/auth/mobile/BoardComponentMobile";
+import LoginComponentMobile from "../../components/auth/mobile/LoginComponentMobile";
+import FooterComponentMobile from "../../components/auth/mobile/FooterComponentMobile";
 
 const Auth = () => {
   return (

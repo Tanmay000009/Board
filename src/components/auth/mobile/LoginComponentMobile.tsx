@@ -1,5 +1,5 @@
 import Image from "next/image";
-import LoginForm from "./loginForm";
+import LoginForm from "../loginForm";
 
 const LoginComponentMobile = () => {
   return (
