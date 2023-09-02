@@ -6,7 +6,7 @@ import BoardComponentMobile from "./BoardComponentMobile";
 import LoginComponentMobile from "./LoginComponentMobile";
 import FooterComponentMobile from "./FooterComponentMobile";
 
-const login = () => {
+const Auth = () => {
   return (
     <>
       <head>
@@ -38,4 +38,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Auth;
