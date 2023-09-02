@@ -10,6 +10,7 @@ import {
   YAxis,
 } from "recharts";
 import GraphHeading from "./Heading";
+import { SHADOW_STYLE } from "../Dashboard";
 
 // Define the data array before using it in the Graph component
 const data = [
@@ -42,7 +43,12 @@ const data = [
 
 const Graph = () => {
   return (
-    <div className="p-4 px-8 h-96 flex-grow bg-white flex flex-col gap-8 rounded-xl">
+    <div
+      className={
+        "p-4 px-8 h-96 flex-grow bg-white flex flex-col gap-8 rounded-xl " +
+        SHADOW_STYLE
+      }
+    >
       <GraphHeading />
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} maxBarSize={40}>

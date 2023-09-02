@@ -1,8 +1,14 @@
 import Image from "next/image";
+import { SHADOW_STYLE } from "../Dashboard";
 
 const StatsCards = ({ active }: { active: boolean }) => {
   return (
-    <div className="flex-grow flex flex-col gap-2 bg-white rounded-xl py-4 px-4 md:px-8 cursor-pointer hover:scale-105 transition duration-150  hover:opacity-80 active:scale-90 active:opacity-100">
+    <div
+      className={
+        "flex-grow flex flex-col gap-2 bg-white rounded-xl py-4 px-4 md:px-8 cursor-pointer hover:scale-105 transition duration-150  hover:opacity-80 active:scale-90 active:opacity-100 " +
+        SHADOW_STYLE
+      }
+    >
       <div className="bg-[#7ECC93] rounded-full p-1 md:p-2 h-10 w-10 grid place-items-center">
         <Image
           src={"/icons/revenue.svg"}

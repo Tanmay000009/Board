@@ -1,10 +1,16 @@
+import { SHADOW_STYLE } from "../Dashboard";
 import Heading from "./Heading";
 import LabelItem from "./LabelItem";
 import PieChartComponent from "./PieChart";
 
 const TopProductsCard = () => {
   return (
-    <div className="h-72 w-full bg-white mt-8 rounded-xl p-4 xl:p-8 flex flex-col">
+    <div
+      className={
+        "h-72 w-full bg-white mt-8 rounded-xl p-4 xl:p-8 flex flex-col " +
+        SHADOW_STYLE
+      }
+    >
       <Heading />
       <div className="flex flex-row w-full h-full ">
         <div className="hidden xl:flex basis-1/2 w-1/2">
