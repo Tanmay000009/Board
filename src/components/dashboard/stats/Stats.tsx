@@ -9,12 +9,12 @@ const Stats = () => {
         <StatsCards active={false} />
         <StatsCards active={false} />
       </div>
-      <div className="my-8 flex flex-col  xl:hidden gap-4">
-        <div className="flex flex-row justify-between items-center gap-4 md:gap-8">
+      <div className="my-8 flex flex-row  xl:hidden gap-4">
+        <div className="flex flex-col basis-1/2 justify-between items-center gap-4 md:gap-8">
           <StatsCards active={true} />
           <StatsCards active={false} />
         </div>
-        <div className="flex flex-row justify-between items-center gap-4 md:gap-8">
+        <div className="flex flex-col basis-1/2  justify-between items-center gap-4 md:gap-8">
           <StatsCards active={false} />
           <StatsCards active={false} />
         </div>

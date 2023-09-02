@@ -5,7 +5,7 @@ const StatsCards = ({ active }: { active: boolean }) => {
   return (
     <div
       className={
-        "flex-grow flex flex-col gap-2 bg-white rounded-xl py-4 px-4 md:px-8 cursor-pointer hover:scale-105 transition duration-150  hover:opacity-80 active:scale-90 active:opacity-100 " +
+        "flex-grow flex w-full flex-col gap-2 bg-white rounded-xl py-4 px-4 md:px-8 cursor-pointer hover:scale-105 transition duration-150  hover:opacity-80 active:scale-90 active:opacity-100 " +
         SHADOW_STYLE
       }
     >
