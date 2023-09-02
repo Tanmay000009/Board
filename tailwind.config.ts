@@ -18,6 +18,8 @@ const config: Config = {
       mont: ["Montserrat", "sans-serif"],
       lato: ["Lato", "sans-serif"],
       poppins: ["Poppins", "sans-serif"],
+      openSans: ["Open Sans", "sans-serif"],
+      figTree: ["FigTree", "sans-serif"],
     },
   },
   plugins: [],
