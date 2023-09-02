@@ -48,7 +48,7 @@ const StatsCards = ({ active }: { active: boolean }) => {
       <div className="flex xl:hidden flex-col">
         <h3 className="text-xs ">Total Revenue</h3>
         <div className="flex flex-row justify-between">
-          <h4 className="text-lg md:text-xl font-openSans font-bold">
+          <h4 className="text-base sm:text-lg md:text-xl font-openSans font-bold">
             $ 2,299,222
           </h4>
           {active ? (
@@ -69,7 +69,7 @@ const StatsCards = ({ active }: { active: boolean }) => {
               />
             </>
           ) : null}
-          <div className="bg-[#E9F9EB] px-2 py-1 rounded-3xl text-xs md:text-sm font-figTree font-semibold text-[#4AD15F]">
+          <div className="bg-[#E9F9EB] px-2 py-1 rounded-3xl text-[0.5rem] sm:text-xs md:text-sm font-figTree font-semibold text-[#4AD15F]">
             + 2.5 %
           </div>
         </div>

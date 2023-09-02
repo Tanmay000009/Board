@@ -16,13 +16,15 @@ const DashboardNav = () => {
       <h1 className="font-mont font-bold text-xl">Dashboard</h1>
       <div className="flex flex-row justify-center items-center gap-4">
         <SearchBar />
-        <NotificationIcon />
+        <div className="hidden sm:flex">
+          <NotificationIcon />
+        </div>
         <Image
           src={"/assets/user.png"}
           alt="Profile"
           width={width > 768 ? "32" : "24"}
           height={width > 768 ? "32" : "24"}
-          className="rounded-full cursor-pointer"
+          className="hidden sm:flex rounded-full cursor-pointer"
         />
       </div>
     </div>
