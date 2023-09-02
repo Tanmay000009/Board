@@ -28,6 +28,15 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
           rel="stylesheet"
         ></link>
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Figtree:wght@600&display=swap"
+          rel="stylesheet"
+        />
       </head>
 
       <body className={inter.className}>{children}</body>
