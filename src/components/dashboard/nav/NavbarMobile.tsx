@@ -25,7 +25,7 @@ const NavbarMobile = () => {
     <>
       <nav className="basis-1/12 flex flex-row justify-between  rounded-2xl m-4 p-4 bg-gradient-to-b from-[#4285F4] from-40% to-[#286DE0]">
         <Image
-          src={"/assets/user.png"}
+          src={auth.currentUser?.photoURL || "/assets/user.png"}
           alt="Profile"
           width={"36"}
           height={"36"}
