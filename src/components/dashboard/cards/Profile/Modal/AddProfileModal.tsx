@@ -96,12 +96,12 @@ const AddProfileModal = ({
       id="profileModal"
       tabIndex={-1}
       className={
-        "fixed left-0 top-0 z-50 w-full p-4 overflow-x-hidden bg-[#000000] bg-opacity-50 overflow-y-auto md:inset-0 h-full" +
+        "fixed left-0 top-0 z-50 w-full sm:p-4 overflow-x-hidden bg-[#000000] bg-opacity-50 overflow-y-auto md:inset-0 h-full" +
         (openModal ? " " : " hidden")
       }
     >
       <div className="relative w-full h-full grid place-items-center">
-        <div className="relative bg-white w-4/5 sm:w-2/3 md:w-1/2 rounded-lg shadow">
+        <div className="relative bg-white w-11/12 sm:w-2/3 md:w-1/2 rounded-lg shadow">
           <div className="flex items-start justify-between p-4 border-b border-[#F2F2F2] rounded-t ">
             <h3 className="text-xl font-figTree font-semibold text-gray-900 ">
               Add New Profile

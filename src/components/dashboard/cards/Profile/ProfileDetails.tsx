@@ -14,7 +14,7 @@ const ProfileDetails = ({ user }: { user: IUser }) => {
       <div className="flex flex-col h-full w-full justify-between gap-4 ">
         <h2 className="font-figTree font-semibold text-2xl ">{user.name}</h2>
         <div className="flex flex-col-reverse gap-2 h-full w-full">
-          <div className="flex flex-row md:flex-col xl:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row md:flex-col xl:flex-row gap-4">
             <div className="flex flex-col w-full gap-4 xl:gap-8 basis-1/2">
               <div className="basis-1/2 flex flex-row justify-start items-center gap-2">
                 <div className="grid place-items-center h-8 w-8 bg-[#E9F9EB] rounded-full">
