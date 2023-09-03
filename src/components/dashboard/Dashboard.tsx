@@ -15,7 +15,7 @@ const DashboardComponent = () => {
       <DashboardNav />
       <Stats />
       <Graph />
-      <div className="flex flex-col md:flex-row justify-between md:justify-normal md:gap-10 w-full">
+      <div className="flex flex-col md:flex-row justify-between md:justify-normal gap-8 lg:gap-10 w-full">
         <TopProductsCard />
         <ProfileCard />
       </div>

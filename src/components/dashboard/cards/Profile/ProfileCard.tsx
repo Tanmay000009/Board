@@ -31,7 +31,7 @@ const ProfileCard = () => {
         <>
           <div
             className={
-              "h-72 w-full bg-white mt-8 rounded-xl p-4 xl:p-8 grid place-items-center  " +
+              "basis-1/2 h-72 w-full bg-white mt-8 rounded-xl p-4 xl:p-8 grid place-items-center  " +
               SHADOW_STYLE
             }
           >
