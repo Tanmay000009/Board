@@ -13,41 +13,81 @@ import {
 } from "recharts";
 import GraphHeading from "./Heading";
 import { SHADOW_STYLE } from "../Dashboard";
+import { toast } from "react-toastify";
+
+const dummy_data = [
+  {
+    name: "11:00:00",
+    IBM: 20.09,
+    MSFT: 44,
+  },
+  {
+    name: "12:00:00",
+    IBM: 21,
+    MSFT: 39,
+  },
+  {
+    name: "13:00:00",
+    IBM: 22,
+    MSFT: 41,
+  },
+  {
+    name: "14:00:00",
+    IBM: 20.09,
+    MSFT: 44,
+  },
+  {
+    name: "15:00:00",
+    IBM: 18,
+    MSFT: 45,
+  },
+];
 
 const Graph = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<any>([]);
+
   useEffect(() => {
-    getData();
+    (async () => {
+      setLoading(true);
+      const data_IBM = await fetch(
+        `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=60min&month=2009-02&outputsize=full&apikey=${process.env.NEXT_PUBLIC_ALPHA_KEY}`
+      ).then((res) => res.json());
+
+      if (data_IBM.Information) {
+        toast.error("API limit reached, hence using dummy data :)");
+        setData(dummy_data);
+        setLoading(false);
+        return;
+      }
+
+      const IBM_data = data_IBM["Time Series (60min)"];
+
+      const data_MSFT = await fetch(
+        `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=60min&month=2009-02&outputsize=full&apikey=${process.env.NEXT_PUBLIC_ALPHA_KEY}`
+      ).then((res) => res.json());
+
+      const MSFT_data = data_MSFT["Time Series (60min)"];
+
+      const final_data = [];
+
+      let j = 15;
+      if (IBM_data.length > 0 && MSFT_data.length > 0)
+        for (let i = 0; i < 5; i++) {
+          final_data.push({
+            name: j + ":00:00",
+            IBM: IBM_data[i]["1. open"],
+            MSFT: MSFT_data[i]["1. open"],
+          });
+          j++;
+        }
+
+      setData(final_data);
+
+      setLoading(false);
+    })();
   }, []);
-  const getData = async () => {
-    setLoading(true);
-    const data_IBM = await fetch(
-      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=60min&month=2009-02&outputsize=full&apikey=${process.env.NEXT_PUBLIC_ALPHA_KEY}`
-    ).then((res) => res.json());
 
-    const IBM_data = data_IBM["Time Series (60min)"];
-
-    const data_MSFT = await fetch(
-      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=60min&month=2009-02&outputsize=full&apikey=${process.env.NEXT_PUBLIC_ALPHA_KEY}`
-    ).then((res) => res.json());
-
-    const MSFT_data = data_MSFT["Time Series (60min)"];
-
-    const final_data = [];
-
-    for (let i = 0; i < 5; i++) {
-      final_data.push({
-        name: Object.keys(IBM_data)[i].split(" ")[1],
-        IBM: IBM_data[Object.keys(IBM_data)[i]]["1. open"],
-        MSFT: MSFT_data[Object.keys(MSFT_data)[i]]["1. open"],
-      });
-    }
-
-    setData(final_data);
-
-    setLoading(false);
-  };
   return (
     <div
       className={
