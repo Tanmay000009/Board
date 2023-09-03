@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import {
   Bar,
@@ -12,36 +14,40 @@ import {
 import GraphHeading from "./Heading";
 import { SHADOW_STYLE } from "../Dashboard";
 
-// Define the data array before using it in the Graph component
-const data = [
-  {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-  },
-  {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-  },
-  {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-  },
-  {
-    name: "Page D",
-    uv: 3000,
-    pv: 6600,
-  },
-  {
-    name: "Page E",
-    uv: 1000,
-    pv: 9000,
-  },
-];
-
 const Graph = () => {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<any>([]);
+  useEffect(() => {
+    getData();
+  }, []);
+  const getData = async () => {
+    setLoading(true);
+    const data_IBM = await fetch(
+      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=60min&month=2009-02&outputsize=full&apikey=${process.env.NEXT_PUBLIC_ALPHA_KEY}`
+    ).then((res) => res.json());
+
+    const IBM_data = data_IBM["Time Series (60min)"];
+
+    const data_MSFT = await fetch(
+      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=60min&month=2009-02&outputsize=full&apikey=${process.env.NEXT_PUBLIC_ALPHA_KEY}`
+    ).then((res) => res.json());
+
+    const MSFT_data = data_MSFT["Time Series (60min)"];
+
+    const final_data = [];
+
+    for (let i = 0; i < 5; i++) {
+      final_data.push({
+        name: Object.keys(IBM_data)[i].split(" ")[1],
+        IBM: IBM_data[Object.keys(IBM_data)[i]]["1. open"],
+        MSFT: MSFT_data[Object.keys(MSFT_data)[i]]["1. open"],
+      });
+    }
+
+    setData(final_data);
+
+    setLoading(false);
+  };
   return (
     <div
       className={
@@ -50,16 +56,33 @@ const Graph = () => {
       }
     >
       <GraphHeading />
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data} maxBarSize={40}>
-          <CartesianGrid vertical={false} stroke="#EAEAEA" />
-          <XAxis dataKey="name" axisLine={false} stroke="#858585" />
-          <YAxis axisLine={false} tickLine={false} stroke="#858585" />
-          <Tooltip />
-          <Bar dataKey="pv" fill="#8884d8" radius={[5, 5, 5, 5]} />
-          <Bar dataKey="uv" fill="#82ca9d" radius={[5, 5, 5, 5]} />
-        </BarChart>
-      </ResponsiveContainer>
+      {loading ? (
+        <div className="flex flex-col justify-center items-center h-full">
+          <div className="h-16 w-16 animate-spin-slow rounded-full border-4 border-dashed border-[#3C83F9] "></div>
+          <h2 className="font-mont text-center text-white text-xl font-semibold">
+            Loading...
+          </h2>
+          <p className="font-mont font-normal w-2/3 text-center text-white">
+            This may take a few seconds, please dont close this page.
+          </p>
+        </div>
+      ) : (
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={data} maxBarSize={40}>
+            <CartesianGrid vertical={false} stroke="#EAEAEA" />
+            <XAxis
+              dataKey="name"
+              axisLine={false}
+              tickLine={false}
+              stroke="#858585"
+            />
+            <YAxis axisLine={false} tickLine={false} stroke="#858585" />
+            <Tooltip />
+            <Bar dataKey="IBM" fill="#8884d8" radius={[5, 5, 5, 5]} />
+            <Bar dataKey="MSFT" fill="#82ca9d" radius={[5, 5, 5, 5]} />
+          </BarChart>
+        </ResponsiveContainer>
+      )}
     </div>
   );
 };
