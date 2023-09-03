@@ -3,29 +3,28 @@
 import Image from "next/image";
 import LoginForm from "./loginForm";
 import { useEffect, useState } from "react";
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  signInWithRedirect,
-} from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "./../../app/utils/firebase";
+import { useRouter } from "next/navigation";
 
 const LoginComponent = () => {
+  const router = useRouter();
+
   const [loading, setLoading] = useState(false);
 
   // redirect to dashboard if user is logged in
   useEffect(() => {
     if (auth.currentUser) {
-      window.location.href = "/dashboard";
+      router.push("/dashboard");
     }
   }, []);
 
   const googleLogin = async () => {
     setLoading(true);
     await signInWithPopup(auth, new GoogleAuthProvider())
-      .then((result) => {
-        window.location.href = "/dashboard";
+      .then(async (result) => {
+        router.push("/dashboard");
       })
       .catch((error) => {
         console.log("Error", error);
