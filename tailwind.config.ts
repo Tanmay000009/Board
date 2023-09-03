@@ -21,6 +21,9 @@ const config: Config = {
       openSans: ["Open Sans", "sans-serif"],
       figTree: ["FigTree", "sans-serif"],
     },
+    animation: {
+      "spin-slow": "spin 2s linear infinite",
+    },
   },
   plugins: [],
 };
