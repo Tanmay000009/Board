@@ -1,4 +1,4 @@
-import { SHADOW_STYLE } from "../Dashboard";
+import { SHADOW_STYLE } from "../../Dashboard";
 import Heading from "./Heading";
 import LabelItem from "./LabelItem";
 import PieChartComponent from "./PieChart";
