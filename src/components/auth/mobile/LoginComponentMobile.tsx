@@ -10,14 +10,17 @@ import {
 } from "firebase/auth";
 import { toast } from "react-toastify";
 import { auth } from "../../../app/utils/firebase";
+import { useRouter } from "next/navigation";
 
 const LoginComponentMobile = () => {
+  const router = useRouter();
+
   const [loading, setLoading] = useState(false);
 
   // redirect to dashboard if user is logged in
   useEffect(() => {
     if (auth.currentUser) {
-      window.location.href = "/dashboard";
+      router.push("/dashboard");
     }
   }, []);
 
@@ -27,7 +30,7 @@ const LoginComponentMobile = () => {
       .then((result) => {
         console.log("Result", result);
 
-        window.location.href = "/dashboard";
+        router.push("/dashboard");
       })
       .catch((error) => {
         console.log("Error", error);

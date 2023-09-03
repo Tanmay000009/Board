@@ -7,14 +7,17 @@ import NavItem from "./NavItem";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../app/utils/firebase";
+import { useRouter } from "next/navigation";
 
 const NavbarMobile = () => {
+  const router = useRouter();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
 
   const logout = () => {
     signOut(auth).then(() => {
-      window.location.href = "/";
+      router.push("/auth");
     });
   };
 

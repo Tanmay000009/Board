@@ -6,8 +6,11 @@ import SearchBar from "./SearchBar";
 import { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../../app/utils/firebase";
+import { useRouter } from "next/navigation";
 
 const DashboardNav = () => {
+  const router = useRouter();
+
   const [width, setWidth] = useState(0);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
 
@@ -17,7 +20,7 @@ const DashboardNav = () => {
 
   const logout = () => {
     signOut(auth).then(() => {
-      window.location.href = "/";
+      router.push("/auth");
     });
   };
 
@@ -30,7 +33,7 @@ const DashboardNav = () => {
           <NotificationIcon />
         </div>
         <Image
-          src={"/assets/user.png"}
+          src={auth.currentUser?.photoURL || "/assets/user.png"}
           alt="Profile"
           width={width > 768 ? "32" : "24"}
           height={width > 768 ? "32" : "24"}
