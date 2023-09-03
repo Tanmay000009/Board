@@ -5,9 +5,18 @@ import NotificationIcon from "../../icons/NotificationIcon";
 import FooterItem from "./FooterItem";
 import NavItem from "./NavItem";
 import { useState } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../app/utils/firebase";
 
 const NavbarMobile = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+
+  const logout = () => {
+    signOut(auth).then(() => {
+      window.location.href = "/";
+    });
+  };
 
   return (
     <>
@@ -18,6 +27,7 @@ const NavbarMobile = () => {
           width={"36"}
           height={"36"}
           className=" rounded-full cursor-pointer"
+          onClick={() => setProfileMenuOpen(!profileMenuOpen)}
         />
         <h1 className="text-white font-mont font-bold text-3xl">Board.</h1>
         <div className="flex flex-row justify-center items-center gap-2">
@@ -67,6 +77,24 @@ const NavbarMobile = () => {
         <div className="flex flex-col-reverse gap-2 h-full">
           <FooterItem title="Contact Us" />
           <FooterItem title="Help" />
+        </div>
+      </div>
+      <div
+        className={
+          " flex-row justify-between items-start  rounded-2xl m-4 p-4 bg-gradient-to-b from-[#4285F4] from-40% to-[#286DE0]" +
+          (profileMenuOpen ? " flex  " : " hidden")
+        }
+        id="nav"
+      >
+        <div className="flex flex-col gap-4 py-2 ">
+          <button
+            className={
+              "text-white font-mont   text-base cursor-pointer hover:scale-110 transition duration-150  hover:opacity-80 active:scale-90 active:opacity-100 "
+            }
+            onClick={logout}
+          >
+            Logout
+          </button>
         </div>
       </div>
     </>
