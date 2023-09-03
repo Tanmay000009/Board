@@ -3,6 +3,13 @@ import Heading from "./Heading";
 import LabelItem from "./LabelItem";
 import PieChartComponent from "./PieChart";
 
+export const data = [
+  { name: "Group A", value: 400 },
+  { name: "Group B", value: 300 },
+  { name: "Group C", value: 300 },
+  { name: "Group D", value: 200 },
+];
+
 const TopProductsCard = () => {
   return (
     <div
@@ -23,10 +30,10 @@ const TopProductsCard = () => {
           <PieChartComponent size="big" />
         </div>
         <div className=" basis-1/2 flex flex-col gap-2 pl-8 pt-4 xl:pl-12 ">
-          <LabelItem />
-          <LabelItem />
-          <LabelItem />
-          <LabelItem />
+          <LabelItem label="Group A" share={33} />
+          <LabelItem label="Group B" share={25} />
+          <LabelItem label="Group C" share={25} />
+          <LabelItem label="Group D" share={17} />
         </div>
       </div>
     </div>
