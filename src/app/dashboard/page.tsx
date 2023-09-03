@@ -13,8 +13,7 @@ const Dashboard = () => {
   // redirect to login if not logged in
   useEffect(() => {
     if (!auth.currentUser) {
-      toast.error("You are not logged in");
-      router.push("/auth/");
+      router.push("/auth");
     }
   }, []);
 
