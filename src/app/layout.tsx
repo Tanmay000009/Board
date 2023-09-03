@@ -34,7 +34,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Figtree:wght@600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&display=swap"
           rel="stylesheet"
         />
       </head>

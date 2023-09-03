@@ -3,7 +3,8 @@
 import DashboardNav from "./DashboardNav";
 import Stats from "./stats/Stats";
 import Graph from "./graph/Graph";
-import TopProductsCard from "./cards/TopProductsCard";
+import TopProductsCard from "./cards/TopProducts/TopProductsCard";
+import ProfileCard from "./cards/Profile/ProfileCard";
 
 export const SHADOW_STYLE =
   " shadow-[rgba(98,_98,_98,_0.15)_0px_0px_0px_2px,_rgba(98,_98,_98,_0.15)_0px_4px_6px_-1px,_rgba(98,_98,_98,_0.15)_0px_1px_0px_inset]";
@@ -16,7 +17,7 @@ const DashboardComponent = () => {
       <Graph />
       <div className="flex flex-col md:flex-row justify-between md:justify-normal md:gap-10 w-full">
         <TopProductsCard />
-        <TopProductsCard />
+        <ProfileCard />
       </div>
     </main>
   );
