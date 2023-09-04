@@ -27,7 +27,17 @@ const ModalPage2 = ({
           }
           value={user.instagram}
           placeholder="Eg. ..instagram.com/username"
-          onChange={(e) => setUser({ ...user, instagram: e.target.value })}
+          onChange={(e) =>
+            setUser({
+              ...user,
+              instagram:
+                e.target.value.split("/").length > 1
+                  ? e.target.value.split("/")[
+                      e.target.value.split("/").length - 1
+                    ]
+                  : e.target.value,
+            })
+          }
         />
       </div>
       <div className="mb-6">
@@ -46,7 +56,17 @@ const ModalPage2 = ({
           }
           placeholder="Eg. ..youtebe/username"
           value={user.youtube}
-          onChange={(e) => setUser({ ...user, youtube: e.target.value })}
+          onChange={(e) =>
+            setUser({
+              ...user,
+              youtube:
+                e.target.value.split("/").length > 1
+                  ? e.target.value.split("/")[
+                      e.target.value.split("/").length - 1
+                    ]
+                  : e.target.value,
+            })
+          }
         />
       </div>
     </div>
