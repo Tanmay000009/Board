@@ -59,7 +59,7 @@ const Graph = () => {
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=60min&month=2009-02&outputsize=full&apikey=${process.env.NEXT_PUBLIC_ALPHA_KEY}`
     ).then((res) => res.json());
 
-    if (data_IBM.Information) {
+    if (data_IBM.Information || data_IBM.Note) {
       setData(dummy_data);
       setLoading(false);
       setDummyData(true);
