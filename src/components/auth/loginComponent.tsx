@@ -66,7 +66,10 @@ const LoginComponent = () => {
           </button>
         </div>
         <div className="flex lg:hidden flex-col gap-4 justify-between font-mont font-normal text-xs ">
-          <button className="flex flex-row justify-center items-end px-4 py-2 bg-white gap-2 rounded-lg hover:shadow transition duration-150">
+          <button
+            onClick={googleLogin}
+            className="flex flex-row justify-center items-end px-4 py-2 bg-white gap-2 rounded-lg hover:shadow transition duration-150"
+          >
             <Image
               src="/icons/google.svg"
               alt="google"
